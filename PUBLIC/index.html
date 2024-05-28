@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>teste soket.io</title>
+</head>
+<body>
+    <form class="formulario">
+        <input class="input_name" type="text" name="name" placeholder="digite seu nome">
+        <div class="div_msg">
+           <!--mensagens aqui-->
+        </div>
+        <div class="div_buttons">
+            <input class="input_message"  type="text" name="message" placeholder="digite sua message">
+            <button type="submit">enviar</button>
+        </div>
+    </form>
+    <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+<script>
+     const socket = io('http://localhost:5000'); 
+
+     let renderMessagers = (obj_msg) =>{
+           let div = $('.div_msg').append(`<div class="div_soket"><div class="infors_div"><h1>USUARIO:</h1><p class="p_msg"> ${obj_msg.nome}</p></div><br><div class="msg">${obj_msg.messages}</div></div>`)
+        }
+    
+      socket.on('render',msg_m =>{
+        renderMessagers(msg_m)
+      })
+
+     $('.formulario').submit(evt =>{
+        evt.preventDefault();
+
+        let name = $('.input_name').val();
+        let messagers = $('.input_message').val();
+        let obj_user = {
+            nome:name,
+            messages:messagers
+        }
+        renderMessagers(obj_user)
+        socket.emit('sendMessage',obj_user)
+    })
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,93 @@
+body{
+    background: gray;
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.formulario{
+    width: 75%;
+    height: 80%;
+    background: white;
+    border-radius: 4px;
+    padding: 4px;
+    position: relative;
+}
+input{
+ padding: 9px;
+}
+.input_name{
+ width: 95%;
+}
+.input_message{
+ width:80% ;
+}
+
+.div_msg{
+    padding: 5px;
+    height:81%;
+    width: 98%;
+    background: gray;
+    position: relative;
+    top:2px;
+    overflow: scroll;
+}
+.div_buttons{
+    width:100%;
+    display: flex;
+    position: absolute;
+    bottom: 2px;
+}
+h1{
+    font-size:small;
+}
+.infors_div{
+    position: relative;
+    top:-12px;
+    left: -5px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 17px;
+}
+
+.msg{
+    position: relative;
+    top: -45px;
+}
+
+p{
+  font-style: italic;
+  position: relative;
+  top: -1px;
+}
+
+.div_soket{
+    padding: 8px;
+    border-radius: 6px 6px 6px 0px;
+    background: white;
+    width: 65%;
+    margin-top: 6px;
+    overflow-wrap: break-word;
+}
+
+ @media (max-width : 420px) and (max-width : 420px) {
+  h1{
+    font-size:small;
+    padding:2px;
+    position: relative;
+  }
+  .input_name{
+    width: 91%;
+  }
+  .input_message{
+    width: 69%;
+  }
+  .div_msg{
+    width: 95%;
+  }
+  }
+ 
